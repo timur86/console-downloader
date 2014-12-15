@@ -47,8 +47,7 @@ public class Main {
         DownloadManager dm = new DownloadManager(numberOfSimultaneousDownloads,
                 ParseUtils.parseTotalDownloadsRate(totalDownloadsRate), // TODO impl. OptionHandler
                 downloadsFolderPath);
-        dm.addDownloadsFromFile(filePath);
-        dm.start();
+        dm.start(filePath);
     }
 
 }
