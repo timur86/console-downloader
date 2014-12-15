@@ -20,6 +20,11 @@ public final class TestUtils {
 
     public static final int FIFTY_KB = 50 * 1024;
     public static final int FIVE_MB = 5 * 1024 * 1024;
+    public static final ImmutableList<String> EXPECTED_LINES = ImmutableList.of(
+            "http://mirror.internode.on.net/pub/test/50meg.test 50meg.test",
+            "http://test.online.kz/download/swf.rar example.rar",
+            "http://test.online.kz/download/swf.rar swf.rar");
+
     private static final String FILE_FORMAT = "%s %s%n";
 
     private TestUtils() {}
@@ -44,14 +49,6 @@ public final class TestUtils {
                 format(FILE_FORMAT, "http://test.online.kz/download/swf.rar", "example.rar").
                 format(FILE_FORMAT, "http://test.online.kz/download/swf.rar", "swf.rar");
         return formatter.toString().getBytes(StandardCharsets.UTF_8);
-    }
-
-    public static ImmutableList<String> expectedLines() {
-        return ImmutableList.of(
-                "http://mirror.internode.on.net/pub/test/50meg.test 50meg.test",
-                "http://test.online.kz/download/swf.rar example.rar",
-                "http://test.online.kz/download/swf.rar swf.rar"
-        );
     }
 
     private static URL pathToURL(Path path) throws MalformedURLException {

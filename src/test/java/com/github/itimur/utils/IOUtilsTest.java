@@ -45,7 +45,7 @@ public class IOUtilsTest {
 
     @Test
     public void itShouldReadAllLinesFromFile() throws IOException {
-        assertThat(readAllLinesFromFile(filePath)).isEqualTo(expectedLines());
+        assertThat(readAllLinesFromFile(filePath)).isEqualTo(EXPECTED_LINES);
     }
 
     @Test(expected = IllegalArgumentException.class)
