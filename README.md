@@ -2,6 +2,7 @@ console-downloader
 ==================
 
 [![Build Status](https://travis-ci.org/itimur/console-downloader.svg)](https://travis-ci.org/itimur/console-downloader)
+[![Dependency Status](https://www.versioneye.com/user/projects/548f0876dd709d3ee20000f6#tab-dependencies/badge.svg?style=flat)](https://www.versioneye.com/user/projects/548f0876dd709d3ee20000f6#tab-dependencies)
 
 **Build an executable JAR**
 
