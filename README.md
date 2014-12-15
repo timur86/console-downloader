@@ -1,6 +1,8 @@
 console-downloader
 ==================
 
+[![Build Status](https://travis-ci.org/itimur/console-downloader.svg)](https://travis-ci.org/itimur/console-downloader)
+
 **Build an executable JAR**
 
 To build a single executable JAR file that contains all the necessary dependencies. On Windows platforms, type this command:
