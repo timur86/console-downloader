@@ -43,8 +43,8 @@ public class DownloadManager {
         eventBus = new EventBus(DownloadManager.class.getName());
     }
 
-    public void start(Path filePath) {
-        ImmutableList<DownloadTask> tasks = buildDownloadTasks(filePath);
+    public void start(Path linkFilePath) {
+        ImmutableList<DownloadTask> tasks = buildDownloadTasks(linkFilePath);
         remainingTasksCounter = tasks.size();
         eventBus.register(this);
         Stopwatch stopwatch = Stopwatch.createStarted();
@@ -91,10 +91,10 @@ public class DownloadManager {
         }
     }
 
-    private ImmutableList<DownloadTask> buildDownloadTasks(Path filePath) {
+    private ImmutableList<DownloadTask> buildDownloadTasks(Path linkFilePath) {
         ImmutableList.Builder<DownloadTask> tasks = ImmutableList.builder();
         try {
-            for (String line : IOUtils.readAllLinesFromFile(filePath)) {
+            for (String line : IOUtils.readAllLinesFromFile(linkFilePath)) {
                 Download download = ParseUtils.lineToDownload(line);
                 tasks.add(new DownloadTask(download, downloadsFolderPath, rateLimiter));
             }

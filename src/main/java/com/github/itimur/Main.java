@@ -25,7 +25,7 @@ public class Main {
     private Path downloadsFolderPath;
 
     @Option(name = "-f", usage = "links file path", required = true)
-    private Path filePath;
+    private Path linkFilePath;
 
     public static void main(String[] args) {
         new Main().doMain(args);
@@ -47,7 +47,7 @@ public class Main {
         DownloadManager dm = new DownloadManager(numberOfSimultaneousDownloads,
                 ParseUtils.parseTotalDownloadsRate(totalDownloadsRate), // TODO impl. OptionHandler
                 downloadsFolderPath);
-        dm.start(filePath);
+        dm.start(linkFilePath);
     }
 
 }
