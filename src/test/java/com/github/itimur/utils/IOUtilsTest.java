@@ -66,7 +66,7 @@ public class IOUtilsTest {
         Stopwatch stopwatch = Stopwatch.createStarted();
 
         downloadFile(download, downloadsPath, RATE_50KB_PER_SECOND);
-        assertThat(Files.size(downloadsPath.resolve("50KB.file"))).is(FIFTY_KB);
+        assertThat(download.getBytesRead()).is(FIFTY_KB);
         assertDownloadTookAtMost(stopwatch, 1, TimeUnit.SECONDS);
     }
 
@@ -77,7 +77,7 @@ public class IOUtilsTest {
         Stopwatch stopwatch = Stopwatch.createStarted();
 
         downloadFile(download, downloadsPath, RATE_2MB_PER_SECOND);
-        assertThat(Files.size(downloadsPath.resolve("5MB.file"))).is(FIVE_MB);
+        assertThat(download.getBytesRead()).is(FIVE_MB);
         assertDownloadTookAtMost(stopwatch, 2, TimeUnit.SECONDS);
     }
 

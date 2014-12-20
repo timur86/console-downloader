@@ -7,11 +7,9 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Formatter;
-
-import static java.nio.file.Files.write;
-import static java.util.Objects.requireNonNull;
 
 /**
  * @author Timur
@@ -30,17 +28,17 @@ public final class TestUtils {
     private TestUtils() {}
 
     public static void emptyFile(Path path) throws IOException {
-        write(requireNonNull(path, "path"), new byte[0]);
+        Files.write(path, new byte[0]);
     }
 
     public static URL write50KB_TestFile(Path path) throws IOException {
-        requireNonNull(path, "path");
-        return pathToURL(write(path.resolve("50KB.test"), new byte[FIFTY_KB]));
+        Path testFile = Files.write(path.resolve("50KB.test"), new byte[FIFTY_KB]);
+        return pathToURL(testFile);
     }
 
     public static URL write5MB_TestFile(Path path) throws IOException {
-        requireNonNull(path, "path");
-        return pathToURL(write(path.resolve("50MB.test"), new byte[FIVE_MB]));
+        Path testFile = Files.write(path.resolve("50MB.test"), new byte[FIVE_MB]);
+        return pathToURL(testFile);
     }
 
     public static byte[] textLinksInBytes() {
