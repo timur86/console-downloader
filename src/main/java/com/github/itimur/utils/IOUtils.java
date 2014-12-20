@@ -31,6 +31,7 @@ public final class IOUtils {
             "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";
     private static final OpenOption[] OPEN_OPTIONS = {StandardOpenOption.CREATE_NEW, StandardOpenOption.WRITE};
     private static final int EOF = -1;
+    static final int UNKNOWN_CONTENT_LENGTH = -1;
 
     private IOUtils() {}
 
@@ -77,7 +78,7 @@ public final class IOUtils {
     }
 
     static void verifyBytesRead(long bytesRead, long contentLength) throws IOException {
-        if (bytesRead != contentLength)
+        if (contentLength != UNKNOWN_CONTENT_LENGTH && bytesRead != contentLength)
             throw new IOException(format("Only read %d bytes but expected %d bytes%n", bytesRead, contentLength));
     }
 

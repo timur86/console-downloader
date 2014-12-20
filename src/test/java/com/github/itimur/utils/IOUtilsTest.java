@@ -81,9 +81,14 @@ public class IOUtilsTest {
         assertDownloadTookAtMost(stopwatch, 2, TimeUnit.SECONDS);
     }
 
+    @Test
+    public void itShouldNotVerify_WhenContentLengthIsUnknown() throws IOException {
+        verifyBytesRead(FIVE_MB, UNKNOWN_CONTENT_LENGTH);
+    }
+
     @Test(expected = IOException.class)
-    public void itShouldThrowIOE_WhenContentLengthMismatchWithBytesRead() throws IOException {
-        verifyBytesRead(FIVE_MB, FIFTY_KB);
+    public void itShouldThrowIOE_WhenBytesReadMismatchWithContentLength() throws IOException {
+        verifyBytesRead(FIFTY_KB, FIVE_MB);
     }
 
     private static void assertDownloadTookAtMost(Stopwatch stopwatch, long atMost, TimeUnit timeUnit) {
