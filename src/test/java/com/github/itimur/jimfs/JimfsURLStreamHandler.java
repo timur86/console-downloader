@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 
 /**
  * @author Timur
+ * @see <a href="https://github.com/google/jimfs/issues/13">Issue #13</a>
  */
 public class JimfsURLStreamHandler extends URLStreamHandler {
 

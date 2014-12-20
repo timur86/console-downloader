@@ -51,8 +51,10 @@ public final class TestUtils {
         return formatter.toString().getBytes(StandardCharsets.UTF_8);
     }
 
+    /**
+     * @see <a href="https://github.com/google/jimfs/issues/13">Issue #13</a>
+     */
     private static URL pathToURL(Path path) throws MalformedURLException {
-        requireNonNull(path, "path");
         return new URL(null, path.toUri().toString(), new JimfsURLStreamHandler());
     }
 }

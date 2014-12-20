@@ -10,6 +10,7 @@ import java.nio.file.StandardOpenOption;
 
 /**
  * @author Timur
+ * @see <a href="https://github.com/google/jimfs/issues/13">Issue #13</a>
  */
 public class JimfsURLConnection extends HttpURLConnection {
 
